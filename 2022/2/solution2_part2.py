@@ -17,20 +17,6 @@ def decrypt_outcome(outcome_needed, pick_opponent):
     return {"loss": winners[pick_opponent], "draw": pick_opponent, "win": losers[pick_opponent]}[outcome_needed]
 
 
-def get_outcome_points(real_opponent_shape):
-    if winners[real_opponent_shape] == real_my_pick:
-        outcome = "loss"
-        points_this_round = outcome_points[outcome]
-        pass
-    elif real_opponent_shape == real_my_pick:
-        outcome = "draw"
-        points_this_round = outcome_points[outcome]
-    else:
-        outcome = "win"
-        points_this_round = outcome_points[outcome]
-    return points_this_round
-
-
 with open('input.txt', 'r', encoding='UTF-8') as input_file:
     lines = input_file.readlines()
     for line in lines:
@@ -41,7 +27,7 @@ with open('input.txt', 'r', encoding='UTF-8') as input_file:
         real_my_pick = decrypt_outcome(real_needed_outcome, real_opponent_pick)
 
         shape_points_this_round = shape_points[real_my_pick]
-        outcome_points_this_round = get_outcome_points(real_opponent_pick)
+        outcome_points_this_round = outcome_points[real_needed_outcome]
 
         total_points_this_round = shape_points_this_round + outcome_points_this_round
         grand_total_points += total_points_this_round
