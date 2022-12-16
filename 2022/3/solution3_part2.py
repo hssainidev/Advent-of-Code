@@ -8,8 +8,7 @@ with open('input.txt', 'r', encoding='UTF-8') as input_file:
             break
         [first, second, third] = next_lines
 
-        common_char = ''.join(
-            set(str(first).strip()).intersection(str(second).strip()).intersection(str(third).strip())).strip()
+        common_char = ''.join(set(first).intersection(second).intersection(third)).strip()
 
         char_to_int = (ord(common_char) - 96) if common_char.islower() else (ord(common_char) - 38)
 
