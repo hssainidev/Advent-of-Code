@@ -1,2 +1,4 @@
 /2022/.venv/
 /.idea
+/.venv
+/2024/[0-9]+/input.txt
